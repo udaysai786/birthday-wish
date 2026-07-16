@@ -233,28 +233,52 @@ const symbols=["💖","💕","💗","✨","🌸","🎈","💝"];
 
 for(let i=0;i<40;i++){
 
-let s=document.createElement("div");
+    let s=document.createElement("div");
 
-s.className="heart";
+    s.className="heart";
 
-s.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
+    s.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
 
-s.style.left=Math.random()*100+"vw";
+    s.style.left=Math.random()*100+"vw";
 
-s.style.animationDuration=(6+Math.random()*8)+"s";
+    s.style.animationDuration=(6+Math.random()*8)+"s";
 
-s.style.animationDelay=Math.random()*8+"s";
+    s.style.animationDelay=Math.random()*8+"s";
 
-s.style.fontSize=(18+Math.random()*22)+"px";
+    s.style.fontSize=(18+Math.random()*22)+"px";
 
-document.body.appendChild(s);
+    document.body.appendChild(s);
 
 }
 
+function showReaction(emoji){
 
+    const popup=document.getElementById("reactionPopup");
 
+    popup.innerHTML=emoji;
+
+    popup.style.opacity="1";
+    popup.style.transform="translate(-50%,-50%) scale(1.5)";
+
+    setTimeout(()=>{
+        popup.style.opacity="0";
+        popup.style.transform="translate(-50%,-50%) scale(.5)";
+    },1200);
+
+}
 
 </script>
+
+<div class="reactions">
+    <button onclick="showReaction('❤️')">❤️</button>
+    <button onclick="showReaction('😍')">😍</button>
+    <button onclick="showReaction('🥳')">🥳</button>
+    <button onclick="showReaction('🎉')">🎉</button>
+    <button onclick="showReaction('💖')">💖</button>
+</div>
+
+<div id="reactionPopup"></div>
+
 
 </body>
 </html>
