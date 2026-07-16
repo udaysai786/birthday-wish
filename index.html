@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,10 +16,13 @@
 }
 
 body{
+
     overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
+
+    width:100%;
     min-height:100vh;
 
     background:
@@ -26,17 +30,19 @@ body{
 
     position:relative;
     font-family:Arial,sans-serif;
+
 }
 
-/* Floating Stars */
+/* Animated Stars */
 
 body::before{
+
     content:"";
     position:absolute;
     inset:0;
 
     background-image:
-    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#ffffff 1px,transparent 1px),
     radial-gradient(#ffd700 1px,transparent 1px);
 
     background-size:60px 60px,90px 90px;
@@ -44,6 +50,7 @@ body::before{
     opacity:.4;
 
     animation:stars 50s linear infinite;
+
 }
 
 @keyframes stars{
@@ -62,28 +69,38 @@ transform:translateY(-400px);
 
 .heart{
 
-position:absolute;
-color:#ff4f91;
-font-size:20px;
-animation:float 10s linear infinite;
-opacity:.7;
+    position:absolute;
+
+    color:#ff4f91;
+
+    animation:float linear infinite;
+
+    opacity:.8;
+
+    pointer-events:none;
 
 }
 
 @keyframes float{
 
 0%{
-transform:translateY(100vh) scale(.5);
-opacity:0;
+
+    transform:translateY(100vh) scale(.5);
+    opacity:0;
+
 }
 
 20%{
-opacity:1;
+
+    opacity:1;
+
 }
 
 100%{
-transform:translateY(-120vh) scale(1.4);
-opacity:0;
+
+    transform:translateY(-120vh) scale(1.5);
+    opacity:0;
+
 }
 
 }
@@ -92,36 +109,107 @@ opacity:0;
 
 .card{
 
-position:relative;
-z-index:10;
+    position:relative;
 
-animation:zoom 5s ease-in-out infinite alternate;
+    z-index:10;
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    animation:zoom 5s ease-in-out infinite alternate;
 
 }
 
-img{
+.card img{
 
-width:min(90vw,700px);
+    width:100%;
 
-border-radius:20px;
+    max-width:700px;
 
-box-shadow:
-0 0 40px rgba(255,180,0,.4),
-0 0 90px rgba(255,105,180,.3);
+    max-height:90vh;
+
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 0 40px rgba(255,180,0,.5),
+    0 0 90px rgba(255,105,180,.35);
 
 }
 
 @keyframes zoom{
 
 from{
-
 transform:scale(1);
-
 }
 
 to{
+transform:scale(1.03);
+}
 
-transform:scale(1.02);
+}
+
+/* Tablet */
+
+@media(max-width:768px){
+
+.card{
+
+    padding:15px;
+
+}
+
+.card img{
+
+    max-width:100%;
+
+    max-height:82vh;
+
+    border-radius:18px;
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:480px){
+
+.card{
+
+    padding:10px;
+
+}
+
+.card img{
+
+    max-height:75vh;
+
+    border-radius:14px;
+
+}
+
+}
+
+/* Large Desktop */
+
+@media(min-width:1400px){
+
+.card img{
+
+    max-width:900px;
 
 }
 
@@ -134,14 +222,16 @@ transform:scale(1.02);
 <body>
 
 <div class="card">
-<img src="birthday2.png">
+
+<img src="birthday2.png" alt="Happy Birthday">
+
 </div>
 
 <script>
 
-const symbols=["💖","✨","💕","🌸","🎈"];
+const symbols=["💖","💕","💗","✨","🌸","🎈","💝"];
 
-for(let i=0;i<30;i++){
+for(let i=0;i<40;i++){
 
 let s=document.createElement("div");
 
@@ -153,9 +243,9 @@ s.style.left=Math.random()*100+"vw";
 
 s.style.animationDuration=(6+Math.random()*8)+"s";
 
-s.style.fontSize=(18+Math.random()*18)+"px";
-
 s.style.animationDelay=Math.random()*8+"s";
+
+s.style.fontSize=(18+Math.random()*22)+"px";
 
 document.body.appendChild(s);
 
