@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday</title>
+<title>Welcome</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -16,245 +13,65 @@
 }
 
 body{
-
-    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background:#f5f7fa;
     display:flex;
     justify-content:center;
     align-items:center;
-
-    width:100%;
     min-height:100vh;
-
-    background:
-    radial-gradient(circle at top,#2c1b5a,#120d28 45%,#050510);
-
-    position:relative;
-    font-family:Arial,sans-serif;
-
 }
 
-/* Animated Stars */
-
-body::before{
-
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background-image:
-    radial-gradient(#ffffff 1px,transparent 1px),
-    radial-gradient(#ffd700 1px,transparent 1px);
-
-    background-size:60px 60px,90px 90px;
-
-    opacity:.4;
-
-    animation:stars 50s linear infinite;
-
+.container{
+    background:#fff;
+    padding:40px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    max-width:500px;
+    width:90%;
 }
 
-@keyframes stars{
-
-from{
-transform:translateY(0);
+h1{
+    color:#333;
+    margin-bottom:15px;
 }
 
-to{
-transform:translateY(-400px);
+p{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
+button{
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
 }
 
-/* Floating Hearts */
-
-.heart{
-
-    position:absolute;
-
-    color:#ff4f91;
-
-    animation:float linear infinite;
-
-    opacity:.8;
-
-    pointer-events:none;
-
+button:hover{
+    background:#45a049;
 }
-
-@keyframes float{
-
-0%{
-
-    transform:translateY(100vh) scale(.5);
-    opacity:0;
-
-}
-
-20%{
-
-    opacity:1;
-
-}
-
-100%{
-
-    transform:translateY(-120vh) scale(1.5);
-    opacity:0;
-
-}
-
-}
-
-/* Card */
-
-.card{
-
-    position:relative;
-
-    z-index:10;
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px;
-
-    animation:zoom 5s ease-in-out infinite alternate;
-
-}
-
-.card img{
-
-    width:100%;
-
-    max-width:700px;
-
-    max-height:90vh;
-
-    height:auto;
-
-    object-fit:contain;
-
-    display:block;
-
-    border-radius:20px;
-
-    box-shadow:
-    0 0 40px rgba(255,180,0,.5),
-    0 0 90px rgba(255,105,180,.35);
-
-}
-
-@keyframes zoom{
-
-from{
-transform:scale(1);
-}
-
-to{
-transform:scale(1.03);
-}
-
-}
-
-/* Tablet */
-
-@media(max-width:768px){
-
-.card{
-
-    padding:15px;
-
-}
-
-.card img{
-
-    max-width:100%;
-
-    max-height:82vh;
-
-    border-radius:18px;
-
-}
-
-}
-
-/* Mobile */
-
-@media(max-width:480px){
-
-.card{
-
-    padding:10px;
-
-}
-
-.card img{
-
-    max-height:75vh;
-
-    border-radius:14px;
-
-}
-
-}
-
-/* Large Desktop */
-
-@media(min-width:1400px){
-
-.card img{
-
-    max-width:900px;
-
-}
-
-}
-
 </style>
 
 </head>
-
 <body>
 
-<div class="card">
+<div class="container">
+    <h1>👋 Welcome</h1>
 
-<img src="birthday2.png" alt="Happy Birthday">
+    <p>
+        Thank you for visiting.<br><br>
+        The special birthday page is no longer available.
+    </p>
 
+    <button onclick="window.location.href='https://google.com'">
+        Continue
+    </button>
 </div>
-
-<script>
-
-const symbols=["💖","💕","💗","✨","🌸","🎈","💝"];
-
-for(let i=0;i<40;i++){
-
-let s=document.createElement("div");
-
-s.className="heart";
-
-s.innerHTML=symbols[Math.floor(Math.random()*symbols.length)];
-
-s.style.left=Math.random()*100+"vw";
-
-s.style.animationDuration=(6+Math.random()*8)+"s";
-
-s.style.animationDelay=Math.random()*8+"s";
-
-s.style.fontSize=(18+Math.random()*22)+"px";
-
-document.body.appendChild(s);
-
-}
-
-
-
-
-</script>
 
 </body>
 </html>
